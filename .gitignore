@@ -2,7 +2,3 @@
 __pycache__/
 *.pyc
 .files/
-venv/
-.venv/
-*.bak
-.chainlit/.cache/
