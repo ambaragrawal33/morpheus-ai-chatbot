@@ -1,0 +1,9 @@
+chainlit
+groq
+openai
+google-genai
+python-dotenv
+pymupdf
+python-docx
+asyncpg
+sqlalchemy

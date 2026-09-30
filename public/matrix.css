@@ -1,0 +1,362 @@
+/* ==========================================================================
+   MORPHEUS AI - MATRIX MOVIE THEME
+   Black & Phosphor Green Digital Matrix Aesthetic
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- Root Color Variables (Tailwind & Shadcn / Chainlit Theme Tokens) --- */
+:root,
+.dark,
+[data-theme="dark"],
+html,
+body {
+  /* Matrix Color Palette */
+  --matrix-black: #030804;
+  --matrix-darkest: #050d06;
+  --matrix-dark: #0a180c;
+  --matrix-surface: #0e2010;
+  --matrix-border: #17381b;
+  --matrix-border-glow: #00ff41;
+  --matrix-muted: #1e4523;
+  --matrix-muted-text: #4e9c5a;
+  --matrix-green-dim: #00cc33;
+  --matrix-green: #00ff41;
+  --matrix-green-bright: #39ff14;
+  --matrix-green-glow: rgba(0, 255, 65, 0.35);
+  --matrix-text-light: #e6ffe8;
+  --matrix-text-bright: #c8ffcc;
+
+  /* Chainlit Core Tokens */
+  --background: 120 40% 2% !important;        /* #030804 */
+  --foreground: 125 100% 95% !important;      /* #e6ffe8 */
+  --card: 120 35% 4% !important;              /* #050d06 */
+  --card-foreground: 125 100% 95% !important;
+  --popover: 120 35% 5% !important;
+  --popover-foreground: 125 100% 95% !important;
+  --primary: 135 100% 50% !important;         /* #00ff41 */
+  --primary-foreground: 120 40% 2% !important;/* #030804 */
+  --secondary: 125 35% 10% !important;        /* #0e2010 */
+  --secondary-foreground: 125 90% 85% !important;
+  --muted: 125 30% 9% !important;
+  --muted-foreground: 125 35% 55% !important; /* #4e9c5a */
+  --accent: 135 80% 12% !important;
+  --accent-foreground: 135 100% 80% !important;
+  --destructive: 0 84% 60% !important;
+  --destructive-foreground: 0 0% 100% !important;
+  --border: 125 40% 15% !important;           /* #17381b */
+  --input: 125 40% 15% !important;
+  --ring: 135 100% 50% !important;            /* #00ff41 */
+
+  /* Global Fonts */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: dark !important;
+}
+
+/* --- Global Background & Matrix Grid Atmosphere --- */
+body,
+html,
+#root,
+.cl-app,
+main {
+  background-color: #030804 !important;
+  color: #e6ffe8 !important;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(0, 255, 65, 0.07) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(3, 8, 4, 0.98), rgba(2, 6, 3, 1)) !important;
+}
+
+/* Subtle digital scanlines overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 255, 65, 0.015) 50%
+  );
+  background-size: 100% 4px;
+  opacity: 0.7;
+}
+
+/* --- Header & Top Bar --- */
+header,
+#header,
+nav,
+.cl-header {
+  background-color: rgba(3, 8, 4, 0.92) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(0, 255, 65, 0.06) !important;
+}
+
+/* Header title glow */
+header h1,
+header .title,
+header a {
+  color: #00ff41 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.4) !important;
+  font-family: 'Fira Code', monospace !important;
+}
+
+/* --- Chat Input & Composer Area --- */
+#chat-input-container,
+.input-container,
+form:has(textarea),
+div:has(> textarea) {
+  background-color: #061108 !important;
+  border-color: rgba(0, 255, 65, 0.28) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.08) !important;
+  border-radius: 12px !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+#chat-input-container:focus-within,
+div:has(> textarea):focus-within {
+  border-color: #00ff41 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3), inset 0 0 8px rgba(0, 255, 65, 0.1) !important;
+}
+
+textarea#chat-input,
+textarea {
+  background: transparent !important;
+  color: #c8ffcc !important;
+  font-family: 'Fira Code', 'Inter', monospace !important;
+  caret-color: #00ff41 !important;
+}
+
+textarea::placeholder {
+  color: #3b7a47 !important;
+  font-style: italic;
+}
+
+/* --- Buttons & Interactive Elements --- */
+button.bg-primary,
+button[type="submit"],
+.cl-button-primary,
+#send-button {
+  background-color: #00ff41 !important;
+  color: #030804 !important;
+  font-weight: 700 !important;
+  border: 1px solid #39ff14 !important;
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.45) !important;
+  transition: all 0.2s ease !important;
+}
+
+button.bg-primary:hover,
+button[type="submit"]:hover,
+#send-button:hover {
+  background-color: #39ff14 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.8) !important;
+  transform: translateY(-1px);
+}
+
+/* Secondary / Icon Buttons (Mic, Attachments, Settings) */
+button {
+  transition: all 0.2s ease !important;
+}
+
+button svg {
+  color: #00ff41 !important;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 65, 0.3));
+}
+
+button:hover svg {
+  color: #39ff14 !important;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.7));
+}
+
+/* Mic Active Pulse Animation */
+button:has(svg.animate-pulse),
+button.recording {
+  background-color: rgba(0, 255, 65, 0.2) !important;
+  border: 1px solid #00ff41 !important;
+  box-shadow: 0 0 20px #00ff41 !important;
+  animation: matrix-pulse 1.5s infinite;
+}
+
+@keyframes matrix-pulse {
+  0% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.4); }
+  50% { box-shadow: 0 0 22px rgba(0, 255, 65, 0.9); }
+  100% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.4); }
+}
+
+/* --- Message Bubbles & Conversation Feed --- */
+/* User Message Bubble */
+.user-message,
+[data-author="user"],
+div[class*="user_message"] {
+  background: linear-gradient(135deg, #091c0e, #0e2b16) !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  border-radius: 12px !important;
+  color: #e6ffe8 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 255, 65, 0.1) !important;
+}
+
+/* Assistant (Morpheus) Message Bubble */
+.assistant-message,
+[data-author="assistant"],
+div[class*="assistant_message"] {
+  background: transparent !important;
+  color: #d6ffd9 !important;
+  border-left: 2px solid #00ff41 !important;
+  padding-left: 14px !important;
+}
+
+/* Chat Author Name */
+.message-author,
+span:has(> .author) {
+  color: #00ff41 !important;
+  font-family: 'Fira Code', monospace !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.4) !important;
+  letter-spacing: 0.5px;
+}
+
+/* Markdown styling in messages */
+.markdown-body,
+.prose {
+  color: #d9ffdc !important;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  color: #00ff41 !important;
+  font-family: 'Fira Code', monospace !important;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.35) !important;
+  border-bottom-color: rgba(0, 255, 65, 0.2) !important;
+}
+
+.markdown-body strong {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.3) !important;
+}
+
+.markdown-body a {
+  color: #39ff14 !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.markdown-body a:hover {
+  color: #a4ff94 !important;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+/* --- Code Blocks (Matrix Terminal Style) --- */
+pre,
+code {
+  font-family: 'Fira Code', 'Courier New', monospace !important;
+}
+
+pre {
+  background-color: #020703 !important;
+  border: 1px solid rgba(0, 255, 65, 0.35) !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.05), 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+
+code:not(pre code) {
+  background-color: #091a0c !important;
+  color: #39ff14 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0, 255, 65, 0.25) !important;
+}
+
+/* --- Sidebar & Settings Panel --- */
+aside,
+[data-testid="chat-settings-sidebar"],
+.sidebar,
+div[role="dialog"] {
+  background-color: #040d05 !important;
+  border-right: 1px solid rgba(0, 255, 65, 0.2) !important;
+  border-left: 1px solid rgba(0, 255, 65, 0.2) !important;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Settings Form Controls (Select, Switch, Sliders) */
+[role="combobox"],
+select {
+  background-color: #071609 !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  color: #c8ffcc !important;
+  border-radius: 8px !important;
+}
+
+[role="combobox"]:focus,
+select:focus {
+  border-color: #00ff41 !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.4) !important;
+}
+
+/* Switch (Toggle Button) */
+button[role="switch"] {
+  background-color: #0a200e !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+}
+
+button[role="switch"][data-state="checked"] {
+  background-color: #00ff41 !important;
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.6) !important;
+}
+
+button[role="switch"][data-state="checked"] span {
+  background-color: #030804 !important;
+}
+
+/* Dropdown Options */
+div[role="listbox"],
+div[role="menu"] {
+  background-color: #051307 !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9) !important;
+}
+
+div[role="option"]:hover,
+div[role="option"][data-highlighted] {
+  background-color: rgba(0, 255, 65, 0.18) !important;
+  color: #39ff14 !important;
+}
+
+/* --- Scrollbar Customization --- */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030804;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #113616;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41;
+  box-shadow: 0 0 8px #00ff41;
+}
+
+/* --- Audio Element Waveform / Player --- */
+audio,
+.cl-audio-element {
+  filter: hue-rotate(240deg) saturate(200%) brightness(110%);
+}
+
+/* Watermark text & footer */
+.watermark,
+footer {
+  color: #2f693a !important;
+  font-family: 'Fira Code', monospace !important;
+  font-size: 0.75rem !important;
+}
